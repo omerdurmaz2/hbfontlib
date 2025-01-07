@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
-    id("com.vanniktech.maven.publish") version "0.28.0" apply false
-    id("com.gradleup.nmcp") version "0.0.7" apply false
+    id("maven-publish")
 }
 
 android {
@@ -15,6 +14,17 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            from(components.findByName("release")) // "release" bileşenini kullanır
+            groupId = "com.devomer" // GitHub kullanıcı adınızı ekleyin
+            artifactId = "hbfontlib" // Projenizin adı
+            version = "1.0.0" // Yayınladığınız versiyon
         }
     }
 }
