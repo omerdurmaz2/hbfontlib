@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "HBFontTestApp"
 include(":app")
-include(":hbfonts")
+include(":hbfontlib")
