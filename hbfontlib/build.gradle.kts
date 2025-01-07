@@ -4,8 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.omerd.hbfonts"
+    namespace = "com.devomer.hbfontlib"
     compileSdk = 35
+
+    defaultConfig{
+        minSdk = 26
+    }
 
     buildTypes {
         release {
@@ -18,13 +22,27 @@ android {
     }
 }
 
+afterEvaluate {
+    android.libraryVariants.forEach { variant ->
+        publishing.publications.create(variant.name, MavenPublication::class.java){
+            from(components.findByName(variant.name))
+
+            groupId = "com.devomer" // GitHub kullanıcı adınızı ekleyin
+            artifactId = "hbfontlib" // Projenizin adı
+            version = "1.0.3" // Yayınladığınız versiyon
+        }
+    }
+}
+
+/*
 publishing {
     publications {
         create<MavenPublication>("release") {
             from(components.findByName("release")) // "release" bileşenini kullanır
             groupId = "com.devomer" // GitHub kullanıcı adınızı ekleyin
             artifactId = "hbfontlib" // Projenizin adı
-            version = "1.0.0" // Yayınladığınız versiyon
+            version = "1.0.2" // Yayınladığınız versiyon
         }
     }
 }
+*/
