@@ -5,6 +5,7 @@ plugins {
 
 android {
     namespace = "com.devomer.hbfontlib"
+    resourcePrefix ="hbfont_"
     compileSdk = 35
 
     defaultConfig{
@@ -18,6 +19,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            consumerProguardFiles("consumer-rules.pro")
         }
     }
 }
