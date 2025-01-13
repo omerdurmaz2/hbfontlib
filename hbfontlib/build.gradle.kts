@@ -22,6 +22,12 @@ android {
             consumerProguardFiles("consumer-rules.pro")
         }
     }
+
+/*    sourceSets {
+        main {
+            resources.srcDirs += "src/main/res"
+        }
+    }*/
 }
 
 afterEvaluate {
@@ -32,6 +38,10 @@ afterEvaluate {
             groupId = "com.devomer" // GitHub kullanıcı adınızı ekleyin
             artifactId = "hbfontlib" // Projenizin adı
             version = "1.0.3" // Yayınladığınız versiyon
+
+            artifact("$buildDir/outputs/aar/${variant.name}.aar") {
+                builtBy(variant.assemble)
+            }
         }
     }
 }
