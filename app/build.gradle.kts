@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation("com.github.omerdurmaz2:hbfontlib:1.0.8")
+    implementation("com.github.omerdurmaz2:hbfontlib:1.1.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
