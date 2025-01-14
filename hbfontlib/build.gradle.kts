@@ -46,6 +46,10 @@ android {
     }
 }*/
 
+dependencies {
+    implementation (libs.kotlin.stdlib)
+}
+
 publishing {
     publications {
         create<MavenPublication>("release") {
