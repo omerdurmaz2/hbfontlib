@@ -5,7 +5,6 @@ plugins {
 
 android {
     namespace = "com.devomer.hbfontlib"
-    resourcePrefix ="hbfont_"
     compileSdk = 35
 
     defaultConfig{
@@ -22,29 +21,7 @@ android {
             consumerProguardFiles("consumer-rules.pro")
         }
     }
-
-/*    sourceSets {
-        main {
-            resources.srcDirs += "src/main/res"
-        }
-    }*/
 }
-
-/*afterEvaluate {
-    android.libraryVariants.forEach { variant ->
-        publishing.publications.create(variant.name, MavenPublication::class.java){
-            from(components.findByName(variant.name))
-
-            groupId = "com.devomer" // GitHub kullanıcı adınızı ekleyin
-            artifactId = "hbfontlib" // Projenizin adı
-            version = "1.0.3" // Yayınladığınız versiyon
-
-            artifact("$buildDir/outputs/aar/${variant.name}.aar") {
-                builtBy(variant.assemble)
-            }
-        }
-    }
-}*/
 
 dependencies {
     implementation (libs.kotlin.stdlib)
@@ -56,7 +33,7 @@ publishing {
             from(components.findByName("release")) // "release" bileşenini kullanır
             groupId = "com.devomer" // GitHub kullanıcı adınızı ekleyin
             artifactId = "hbfontlib" // Projenizin adı
-            version = "1.0.2" // Yayınladığınız versiyon
+            version = "1.1.4" // Yayınladığınız versiyon
         }
     }
 }

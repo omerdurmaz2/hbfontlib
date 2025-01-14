@@ -20,6 +20,4 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class * {
-    public static final int font_*;
-}
+-keep class com.devomer.hbfontlib.** { *; }

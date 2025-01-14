@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Typeface
 
-class FontProvider private constructor(private val context: Context) {
+public class FontProvider private constructor(private val context: Context) {
 
     companion object {
         @SuppressLint("StaticFieldLeak")
