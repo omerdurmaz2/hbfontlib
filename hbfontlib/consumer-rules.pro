@@ -1,2 +1,1 @@
--keep class com.devomer.hbfontlib.** { *; }
 -keep class com.devomer.hbfontlib.FontProvider { *; }
