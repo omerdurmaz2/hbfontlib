@@ -19,3 +19,5 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+# FontProvider sınıfını koru
+-keep class com.devomer.hbfontlib.FontProvider { *; }
