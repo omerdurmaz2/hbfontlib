@@ -40,19 +40,25 @@ tasks.register<Jar>("sourcesJar") {
     from(android.sourceSets["main"].java.srcDirs)
 }
 
-tasks.register<Jar>("classesJar") {
+/*tasks.register<Jar>("classesJar") {
     archiveClassifier.set("classes")
     from(android.sourceSets["main"].java.srcDirs)
-}
+}*/
+
+
 publishing {
     publications {
         create<MavenPublication>("release") {
-            from(components.findByName("release")) // "release" bileşenini kullanır
-            artifact(tasks.named("sourcesJar").get()) // Kaynak kodlarını ekleyin
-            artifact(tasks.named("classesJar").get()) // Sınıfları ekleyin
-            groupId = "com.devomer" // GitHub kullanıcı adınızı ekleyin
-            artifactId = "hbfontlib" // Projenizin adı
-            version = "1.1.4" // Yayınladığınız versiyon
+            from(components.findByName("release"))
+            artifact("$buildDir/outputs/aar/hbfontlib-release.aar") // AAR dosyasını manuel ekle
+            artifact(tasks.named("sourcesJar").get())
+            groupId = "com.devomer"
+            artifactId = "hbfontlib"
+            version = "1.1.7"
         }
     }
+}
+
+tasks.named("publishReleasePublicationToMavenLocal") {
+    dependsOn("bundleReleaseAar") // AAR dosyasının oluşturulmasını garanti eder
 }
