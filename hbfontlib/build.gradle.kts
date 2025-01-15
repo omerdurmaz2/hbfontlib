@@ -9,7 +9,7 @@ android {
     compileSdk = 35
 
     defaultConfig{
-        minSdk = 26
+        minSdk = 25
     }
 
     buildTypes {
@@ -54,7 +54,7 @@ publishing {
             artifact(tasks.named("sourcesJar").get())
             groupId = "com.devomer"
             artifactId = "hbfontlib"
-            version = "1.1.7"
+            version = "1.1.8"
         }
     }
 }
